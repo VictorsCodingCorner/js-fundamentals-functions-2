@@ -8,7 +8,7 @@
 function timerStatus(t) {
   if (t === 0) {
     return "Phil's cake is ready!"
-  } else if (t < 0) {
+  } else if (t > 0) {
     return 'The cake is still baking!'
   } else {
     return "You didn't set a timer!"
@@ -23,8 +23,9 @@ function timerStatus(t) {
 // If no prep time per ingredient is provided, the function should assume each ingredient
 // takes 2 minutes to prepare
 
-function estimatePrepTime(a, t) {
-  return a.lenght * t
+function estimatePrepTime(ingredients, t) {
+  t = t || 2
+  return ingredients.length * t
 }
 
 // 3. Phil needs to know the quantity of milk and eggs to use! Create a function
@@ -44,7 +45,8 @@ function estimatePrepTime(a, t) {
 // returns: { sugar: 0, eggs: 6 }
 
 function calculateQuantities(ingredients, layers) {
-  const quantities = ingredients.reduce((acc, ingredient) => {
+  const quantities = ingredients.reduce(
+    (acc, ingredient) => {
       if (ingredient === 'sugar') acc.sugar = 100 * layers
       if (ingredient === 'eggs') acc.eggs = 2 * layers
       return acc
@@ -66,6 +68,12 @@ function calculateQuantities(ingredients, layers) {
 // Example:
 // improveRecipe({ eggs: 2, milk: 100, sugar: 200 }, 3)
 // returns: { eggs: 6, milk: 300, sugar: 600 }
+function improveRecipe(object, value) {
+  return Object.entries(object).reduce((acc, [ingredient, quantity]) => {
+    acc[ingredient] = quantity * value
+    return acc
+  }, {})
+}
 
 // Don't change the code below this line
 module.exports = {

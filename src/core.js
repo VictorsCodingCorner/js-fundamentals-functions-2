@@ -1,5 +1,5 @@
 // 1. Create a function named bakingTime that returns 50
-function bakingTime(){
+function bakingTime() {
   return 50
 }
 
@@ -20,7 +20,7 @@ function remainingBakeTime(t) {
 // each layer taking 3 minutes to prepare
 
 function calculatePreparationTime(t) {
-  return t*3
+  return t * 3
 }
 
 // 4. Create a function named totalTimeSpent that accepts two parameters:
@@ -31,7 +31,7 @@ function calculatePreparationTime(t) {
 // Use your calculatePreparationTime function in the calculation.
 
 function totalTimeSpent(l, t) {
- return calculatePreparationTime(l) + t
+  return calculatePreparationTime(l) + t
 }
 
 // Don't change the code below this line
