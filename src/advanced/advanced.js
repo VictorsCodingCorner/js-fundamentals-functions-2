@@ -100,7 +100,8 @@ function parseRequest(req) {
 
   const bodyIndex = req.indexOf('\n\n')
 
-  request.body = bodyIndex !== -1 ? parseBody(req.substring(bodyIndex + 2)) : ''
+  request.body =
+    bodyIndex !== -1 ? parseBody(req.substring(bodyIndex + 2)) : null
 
   return request
 }
